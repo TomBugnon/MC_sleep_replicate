@@ -1,0 +1,6 @@
+00_sleep_transition: !!python/tuple
+- 0.0
+- 2000.0
+01_sleep: !!python/tuple
+- 2000.0
+- 32000.0

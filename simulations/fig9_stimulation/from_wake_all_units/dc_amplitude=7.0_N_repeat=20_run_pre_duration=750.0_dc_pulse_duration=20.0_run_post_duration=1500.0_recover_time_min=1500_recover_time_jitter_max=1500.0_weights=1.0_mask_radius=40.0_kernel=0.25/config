@@ -1,0 +1,10 @@
+N_repeat: 20
+dc_amplitude: 7.0
+dc_pulse_duration: 20.0
+kernel: 0.25
+mask_radius: 40.0
+recover_time_jitter_max: 1500.0
+recover_time_min: 1500
+run_post_duration: 1500.0
+run_pre_duration: 750.0
+weights: 1.0

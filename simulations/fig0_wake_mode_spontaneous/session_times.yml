@@ -1,0 +1,9 @@
+00_init_silent: !!python/tuple
+- 0.0
+- 500.0
+01_warmup: !!python/tuple
+- 500.0
+- 2500.0
+02_noise: !!python/tuple
+- 2500.0
+- 62500.0

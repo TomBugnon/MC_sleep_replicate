@@ -1,0 +1,2234 @@
+params: {}
+nest_params: {}
+session_models:
+  params:
+    reset_network: false
+    record: true
+    shift_origin: true
+    synapse_changes: []
+  nest_params: {}
+  noise:
+    params:
+      simulation_time: 30000.0
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 0.0
+    nest_params: {}
+  warmup:
+    params:
+      simulation_time: 3000.0
+      record: false
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 0.0
+    nest_params: {}
+  modif:
+    params:
+      simulation_time: 10.0
+      record: false
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 0.0
+      - layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        population_name: Vp_PC
+        change_type: multiplicative
+        from_array: false
+        subnet_x_y_max:
+        - 16
+        - 16
+        nest_params:
+          g_peak_AMPA: 1.85
+      - layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        population_name: Vp_BC
+        change_type: multiplicative
+        from_array: false
+        subnet_x_y_max:
+        - 7
+        - 7
+        nest_params:
+          g_peak_AMPA: 1.85
+    nest_params: {}
+  sleep:
+    params:
+      simulation_time: 12000.0
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 0.0
+    nest_params: {}
+  modif2:
+    params:
+      simulation_time: 10.0
+      record: false
+      unit_changes:
+      - layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        population_name: Vp_PC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.05
+      - layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        population_name: Vp_BC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.05
+      - layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        population_name: Vp_MC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.05
+    nest_params: {}
+  grating:
+    params:
+      simulation_time: 2000.0
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 60.0
+          frequency: -3.0
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: true
+        nest_params:
+          phase: ./sinusoidal_grating_vertical_phase_40x40x1.npy
+    nest_params: {}
+  init_silent:
+    params:
+      simulation_time: 500.0
+      record: false
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 0.0
+          amplitude: 0.0
+    nest_params: {}
+  sleep_transition:
+    params:
+      simulation_time: 2000.0
+      record: false
+      unit_changes:
+      - layers:
+        - Retina_layer
+        population_name: retina_nrn
+        change_type: constant
+        from_array: false
+        nest_params:
+          rate: 60.0
+          amplitude: 0.0
+      - layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        population_name: Vp_PC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.2
+          g_peak_AMPA: 1.875
+      - layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        population_name: Vp_BC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.2
+          g_peak_AMPA: 1.875
+      - layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        population_name: Vp_MC
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.2
+      - layers:
+        - Tp_layer
+        population_name: Tp_exc
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.5
+      - layers:
+        - Tp_layer
+        population_name: Tp_inh
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 1.5
+      - layers:
+        - Rp_layer
+        population_name: Rp_inh
+        change_type: multiplicative
+        from_array: false
+        nest_params:
+          g_KL: 0.95
+    nest_params: {}
+network:
+  params: {}
+  nest_params: {}
+  projection_models:
+    params: {}
+    nest_params: {}
+    topological:
+      params:
+        type: topological
+      nest_params:
+        allow_autapses: true
+        allow_multapses: true
+        allow_oversized_mask: false
+        synapse_model: mandatory
+        kernel: mandatory
+        weights: mandatory
+        connection_type: mandatory
+      reticulo_thalamic:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          mask:
+            circular:
+              radius: 12.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+          weights: 16.0
+        Rp_to_Tp_GABA_A:
+          params: {}
+          nest_params:
+            synapse_model: GABA_A_syn
+            kernel:
+              gaussian:
+                p_center: 0.15
+                sigma: 7.5
+          Rp_to_Tp_GABA_A:
+            params: {}
+            nest_params: {}
+        Rp_to_Tp_GABA_B:
+          params: {}
+          nest_params:
+            synapse_model: GABA_B_syn
+            kernel:
+              gaussian:
+                p_center: 0.05
+                sigma: 7.5
+          Rp_to_Tp_GABA_B:
+            params: {}
+            nest_params: {}
+      thalamo_thalamic:
+        params: {}
+        nest_params:
+          synapse_model: GABA_A_syn
+          connection_type: divergent
+          mask:
+            circular:
+              radius: 2.0
+          delays:
+            normal:
+              mean: 1.0
+              sigma: 0.25
+              min: 0.2
+        primary:
+          params: {}
+          nest_params:
+            kernel:
+              gaussian:
+                p_center: 0.25
+                sigma: 2.0
+            weights: 16.0
+          Tp_inh_to_Tp:
+            params: {}
+            nest_params: {}
+      thalamo_reticular:
+        params: {}
+        nest_params:
+          synapse_model: AMPA_syn
+          connection_type: divergent
+          mask:
+            circular:
+              radius: 2.0
+          kernel:
+            gaussian:
+              p_center: 1.0
+              sigma: 2.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+        Tp_to_Rp:
+          params: {}
+          nest_params:
+            weights: 32.0
+      interlaminar_exc_Vp:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          mask:
+            circular:
+              radius: 3.0
+          kernel:
+            gaussian:
+              p_center: 1.0
+              sigma: 2.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+        interlaminar_NMDA_Vp:
+          params: {}
+          nest_params: {}
+          interlaminar_NMDA_Vp_PC_to_PC:
+            params: {}
+            nest_params:
+              synapse_model: NMDA_syn_PC_to_PC
+              weights: 0.75
+        interlaminar_AMPA_Vp:
+          params: {}
+          nest_params: {}
+          interlaminar_AMPA_Vp_PC_to_BC:
+            params: {}
+            nest_params:
+              synapse_model: AMPA_syn_PC_to_BC
+              weights: 4.5
+          interlaminar_AMPA_Vp_PC_to_PC:
+            params: {}
+            nest_params:
+              synapse_model: AMPA_syn_PC_to_PC
+              weights: 2.25
+        interlaminar_AMPA_Vp_L23_to_L56:
+          params: {}
+          nest_params: {}
+          interlaminar_AMPA_Vp_L23_to_L56_PC_to_PC:
+            params: {}
+            nest_params:
+              synapse_model: AMPA_syn_PC_to_PC
+              weights: 1.5
+          interlaminar_AMPA_Vp_L23_to_L56_PC_to_BC:
+            params: {}
+            nest_params:
+              synapse_model: AMPA_syn_PC_to_BC
+              weights: 3.0
+      interlaminar_GABA_B:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          mask:
+            circular:
+              radius: 2.0
+          kernel:
+            gaussian:
+              p_center: 0.1
+              sigma: 2.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+        interlaminar_GABA_B:
+          params: {}
+          nest_params:
+            weights: 16.0
+            synapse_model: GABA_B_syn
+      Vp_MC_connections:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.1
+        Vp_MC_to_all:
+          params: {}
+          nest_params:
+            mask:
+              circular:
+                radius: 12.0
+            kernel:
+              gaussian:
+                p_center: 0.35
+                sigma: 7.5
+          Vp_MC_to_BC:
+            params: {}
+            nest_params:
+              weights: 0.3
+            Vp_MC_to_BC_GABA_B:
+              params: {}
+              nest_params:
+                synapse_model: GABA_B_syn_MC_to_BC
+            Vp_MC_to_BC_GABA_A:
+              params: {}
+              nest_params:
+                synapse_model: GABA_A_syn_MC_to_BC
+            Vp_MC_to_BC_GABA_B1a:
+              params: {}
+              nest_params:
+                synapse_model: GABA_B1a_syn_MC_to_BC
+          Vp_MC_to_PC:
+            params: {}
+            nest_params:
+              weights: 0.35
+            Vp_MC_to_PC_GABA_B1a:
+              params: {}
+              nest_params:
+                synapse_model: GABA_B1a_syn_MC_to_PC
+            Vp_MC_to_PC_GABA_B:
+              params: {}
+              nest_params:
+                synapse_model: GABA_B_syn_MC_to_PC
+            Vp_MC_to_PC_GABA_A:
+              params: {}
+              nest_params:
+                synapse_model: GABA_A_syn_MC_to_PC
+        Vp_BC_to_MC:
+          params: {}
+          nest_params:
+            synapse_model: GABA_A_syn_BC_to_MC
+            mask:
+              circular:
+                radius: 7.0
+            kernel:
+              gaussian:
+                p_center: 0.15
+                sigma: 5.0
+            weights: 4.0
+        Vp_PC_to_MC:
+          params: {}
+          nest_params:
+            synapse_model: AMPA_syn_PC_to_MC
+            mask:
+              circular:
+                radius: 7.0
+            kernel:
+              gaussian:
+                p_center: 0.3
+                sigma: 5.0
+          Vp_PC_to_MC_diff:
+            params: {}
+            nest_params:
+              weights: 2.25
+          Vp_PC_to_MC_same:
+            params: {}
+            nest_params:
+              weights: 4.5
+      reticulo_reticular:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          synapse_model: GABA_A_syn
+          mask:
+            circular:
+              radius: 12.0
+          kernel:
+            gaussian:
+              p_center: 0.5
+              sigma: 7.5
+          weights: 16.0
+          delays:
+            normal:
+              mean: 1.0
+              sigma: 0.25
+              min: 0.2
+        Rp_to_Rp:
+          params: {}
+          nest_params: {}
+      cortico_thalamic_primary:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          synapse_model: AMPA_syn
+          mask:
+            circular:
+              radius: 5.0
+          kernel:
+            gaussian:
+              p_center: 0.5
+              sigma: 4.0
+          delays:
+            normal:
+              mean: 8.0
+              sigma: 0.5
+              min: 0.2
+        Vp_to_Tp:
+          params: {}
+          nest_params:
+            weights: 16.0
+        Vp_to_Rp:
+          params: {}
+          nest_params:
+            weights: 32.0
+      intralaminar_GABA_A_Vp:
+        params: {}
+        nest_params:
+          mask:
+            circular:
+              radius: 7.0
+          connection_type: divergent
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+        intralaminar_GABA_A_Vp_same:
+          params: {}
+          nest_params:
+            weights: 4.0
+          intralaminar_GABA_A_Vp_BC_to_BC_same:
+            params: {}
+            nest_params:
+              synapse_model: GABA_A_syn_BC_to_BC
+              kernel:
+                gaussian:
+                  p_center: 0.5
+                  sigma: 5.0
+          intralaminar_GABA_A_Vp_BC_to_PC_same:
+            params: {}
+            nest_params:
+              synapse_model: GABA_A_syn_BC_to_PC
+              kernel:
+                gaussian:
+                  p_center: 0.7
+                  sigma: 5.0
+        intralaminar_GABA_A_Vp_diff:
+          params: {}
+          nest_params:
+            weights: 0.8
+          intralaminar_GABA_A_Vp_BC_to_PC_diff:
+            params: {}
+            nest_params:
+              synapse_model: GABA_A_syn_BC_to_PC
+              kernel:
+                gaussian:
+                  p_center: 0.7
+                  sigma: 5.0
+          intralaminar_GABA_A_Vp_BC_to_BC_diff:
+            params: {}
+            nest_params:
+              synapse_model: GABA_A_syn_BC_to_BC
+              kernel:
+                gaussian:
+                  p_center: 0.5
+                  sigma: 5.0
+      retinothalamic:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          synapse_model: retinal_projection
+          mask:
+            rectangular:
+              lower_left:
+              - -1.0
+              - -1.0
+              upper_right:
+              - 1.0
+              - 1.0
+          kernel:
+            gaussian:
+              p_center: 1.0
+              sigma: 2.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 1.0
+              min: 0.2
+          weights: 5.0
+        retinothalamic_to_inh_Tp:
+          params: {}
+          nest_params: {}
+        retinothalamic_to_exc_Tp:
+          params: {}
+          nest_params: {}
+      poisson_background:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          kernel: 1.0
+          weights: 1.0
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 1.0
+              min: 0.2
+        cortical_background_AMPA_to_PC:
+          params: {}
+          nest_params:
+            synapse_model: cortical_background_projection_AMPA
+        cortical_background_NMDA_to_PC:
+          params: {}
+          nest_params:
+            synapse_model: cortical_background_projection_NMDA
+        cortical_background_AMPA_to_BC:
+          params: {}
+          nest_params:
+            synapse_model: cortical_background_projection_AMPA
+      thalamo_cortical_primary:
+        params: {}
+        nest_params:
+          connection_type: convergent
+          delays:
+            normal:
+              mean: 3.0
+              sigma: 0.25
+              min: 0.2
+        rectangular:
+          params: {}
+          nest_params:
+            synapse_model: AMPA_syn_thalamocortical_to_PC
+            weights: 4.0
+          Tp_to_P00:
+            params: {}
+            nest_params:
+              mask:
+                rectangular:
+                  lower_left:
+                  - -4.0
+                  - -1.0
+                  upper_right:
+                  - 3.0
+                  - 0.0
+            Tp_to_Vp_P00_L56:
+              params: {}
+              nest_params:
+                kernel: 0.44
+              Tp_to_Vp_P00_L56:
+                params: {}
+                nest_params: {}
+            Tp_to_Vp_P00_L4:
+              params: {}
+              nest_params:
+                kernel: 0.6
+              Tp_to_Vp_P00_L4:
+                params: {}
+                nest_params: {}
+          Tp_to_Vp_P90:
+            params: {}
+            nest_params:
+              mask:
+                rectangular:
+                  lower_left:
+                  - -1.0
+                  - -4.0
+                  upper_right:
+                  - 0.0
+                  - 3.0
+            Tp_to_Vp_P90_L56:
+              params: {}
+              nest_params:
+                kernel: 0.44
+              Tp_to_Vp_P90_L56:
+                params: {}
+                nest_params: {}
+            Tp_to_Vp_P90_L4:
+              params: {}
+              nest_params:
+                kernel: 0.6
+              Tp_to_Vp_P90_L4:
+                params: {}
+                nest_params: {}
+        diffuse:
+          params: {}
+          nest_params:
+            weights: 4.0
+            synapse_model: AMPA_syn_thalamocortical_to_BC
+            mask:
+              circular:
+                radius: 5.0
+            kernel:
+              gaussian:
+                p_center: 0.1
+                sigma: 4.0
+          Tp_Vp_diffuse:
+            params: {}
+            nest_params: {}
+      intralaminar_exc_Vp:
+        params: {}
+        nest_params:
+          connection_type: divergent
+          delays:
+            normal:
+              mean: 2.0
+              sigma: 0.25
+              min: 0.2
+        intralaminar_NMDA_Vp:
+          params: {}
+          nest_params:
+            mask:
+              circular:
+                radius: 12.0
+          intralaminar_NMDA_Vp_diff:
+            params: {}
+            nest_params:
+              weights: 0.15
+              kernel:
+                gaussian:
+                  p_center: 0.05
+                  sigma: 7.5
+            intralaminar_NMDA_Vp_PC_to_PC_diff:
+              params: {}
+              nest_params:
+                synapse_model: NMDA_syn_PC_to_PC
+          intralaminar_NMDA_Vp_same:
+            params: {}
+            nest_params:
+              weights: 0.75
+              kernel:
+                gaussian:
+                  p_center: 0.2
+                  sigma: 7.5
+            intralaminar_NMDA_Vp_PC_to_PC_same:
+              params: {}
+              nest_params:
+                synapse_model: NMDA_syn_PC_to_PC
+        intralaminar_AMPA_Vp:
+          params: {}
+          nest_params:
+            mask:
+              circular:
+                radius: 12.0
+          intralaminar_AMPA_Vp_same:
+            params: {}
+            nest_params: {}
+            intralaminar_AMPA_Vp_PC_to_PC_same:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_PC
+                kernel:
+                  gaussian:
+                    p_center: 0.2
+                    sigma: 7.5
+                weights: 0.75
+            intralaminar_AMPA_Vp_PC_to_BC_same:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_BC
+                kernel:
+                  gaussian:
+                    p_center: 0.6
+                    sigma: 7.5
+                weights: 1.5
+          intralaminar_AMPA_Vp_diff:
+            params: {}
+            nest_params: {}
+            intralaminar_AMPA_Vp_PC_to_PC_diff:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_PC
+                kernel:
+                  gaussian:
+                    p_center: 0.05
+                    sigma: 7.5
+                weights: 0.15
+            intralaminar_AMPA_Vp_PC_to_BC_diff:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_BC
+                kernel:
+                  gaussian:
+                    p_center: 0.6
+                    sigma: 7.5
+                weights: 0.3
+        intralaminar_AMPA_Vp_L4:
+          params: {}
+          nest_params:
+            mask:
+              circular:
+                radius: 7.0
+          intralaminar_AMPA_Vp_L4_same:
+            params: {}
+            nest_params: {}
+            intralaminar_AMPA_Vp_L4_PC_to_PC_same:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_PC
+                kernel:
+                  gaussian:
+                    p_center: 0.2
+                    sigma: 5.0
+                weights: 0.75
+            intralaminar_AMPA_Vp_L4_PC_to_BC_same:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_BC
+                kernel:
+                  gaussian:
+                    p_center: 0.6
+                    sigma: 5.0
+                weights: 1.5
+          intralaminar_AMPA_Vp_L4_diff:
+            params: {}
+            nest_params: {}
+            intralaminar_AMPA_Vp_L4_PC_to_BC_diff:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_BC
+                kernel:
+                  gaussian:
+                    p_center: 0.6
+                    sigma: 5.0
+                weights: 0.3
+            intralaminar_AMPA_Vp_L4_PC_to_PC_diff:
+              params: {}
+              nest_params:
+                synapse_model: AMPA_syn_PC_to_PC
+                kernel:
+                  gaussian:
+                    p_center: 0.05
+                    sigma: 5.0
+                weights: 0.15
+    gap_junctions:
+      params: {}
+      nest_params: {}
+      MC_gap_dummy:
+        params:
+          type: topological
+        nest_params:
+          allow_autapses: true
+          allow_multapses: true
+          allow_oversized_mask: false
+          connection_type: divergent
+          synapse_model: gap_junction_dummy_syn
+          mask:
+            circular:
+              radius: 3.1
+          kernel:
+            gaussian:
+              p_center: 0.35
+              sigma: 3.5
+          weights: 0.0
+      MC_gap:
+        params:
+          type: multisynapse
+          make_symmetric: true
+          query_synapse_label: 100
+        nest_params:
+          model: gap_junction
+          weight: 0.012
+  recorder_models:
+    params: {}
+    nest_params:
+      record_to:
+      - file
+      withgid: true
+      withtime: true
+    spike_detector:
+      params:
+        nest_model: spike_detector
+      nest_params: {}
+    multimeter:
+      params:
+        nest_model: multimeter
+      nest_params:
+        interval: 10.0
+        record_from:
+        - V_m
+  recorders:
+    params:
+      population_recorders:
+      - layers:
+        - Vp_L23_PC_P00
+        - Vp_L4_PC_P00
+        - Vp_L56_PC_P00
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L23_PC_P00
+        - Vp_L4_PC_P00
+        - Vp_L56_PC_P00
+        populations: null
+        model: spike_detector
+      - layers:
+        - Vp_L23_BC_P00
+        - Vp_L4_BC_P00
+        - Vp_L56_BC_P00
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L23_BC_P00
+        - Vp_L4_BC_P00
+        - Vp_L56_BC_P00
+        populations: null
+        model: spike_detector
+      - layers:
+        - Vp_L56_MC_P00
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L56_MC_P00
+        populations: null
+        model: spike_detector
+      - layers:
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P90
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P90
+        populations: null
+        model: spike_detector
+      - layers:
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P90
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P90
+        populations: null
+        model: spike_detector
+      - layers:
+        - Vp_L56_MC_P90
+        populations: null
+        model: multimeter
+      - layers:
+        - Vp_L56_MC_P90
+        populations: null
+        model: spike_detector
+      - layers:
+        - Tp_layer
+        - Rp_layer
+        populations: null
+        model: multimeter
+      - layers:
+        - Tp_layer
+        - Rp_layer
+        populations: null
+        model: spike_detector
+      projection_recorders: []
+    nest_params: {}
+  neuron_models:
+    params: {}
+    nest_params: {}
+    cortical_thalamic:
+      params:
+        nest_model: ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike
+      nest_params:
+        alpha_GABA_B1a:
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        E_K: -90.0
+        E_Na: 30.0
+        E_rev_AMPA: 0.0
+        E_rev_GABA_A: mandatory
+        E_rev_GABA_B: -90.0
+        E_rev_h: -40.0
+        E_rev_KNa: -90.0
+        E_rev_NaP: 30.0
+        E_rev_NMDA: 0.0
+        E_rev_T: 0.0
+        g_gap_scale_factor: 1.0
+        g_KL: mandatory
+        g_max_GABA_B1a: 0.8
+        g_NaL: mandatory
+        g_peak_AMPA: mandatory
+        g_peak_GABA_A: mandatory
+        g_peak_GABA_B: 0.02
+        g_peak_GABA_B1a: 0.05
+        g_peak_h: mandatory
+        g_peak_KNa: mandatory
+        g_peak_NaP: mandatory
+        g_peak_NMDA: 0.05
+        g_peak_T: mandatory
+        S_act_NMDA: 0.081
+        t_ref: mandatory
+        tau_D_KNa: 1400.0
+        tau_decay_AMPA: 2.4
+        tau_decay_GABA_A: 7.0
+        tau_decay_GABA_B: 200.0
+        tau_decay_NMDA: 40.0
+        tau_m: mandatory
+        tau_Mg_fast_NMDA: 0.68
+        tau_Mg_slow_NMDA: 22.7
+        tau_rise_AMPA: 0.5
+        tau_rise_GABA_A: 1.0
+        tau_rise_GABA_B: 60.0
+        tau_rise_NMDA: 4.0
+        tau_spike: mandatory
+        tau_theta: mandatory
+        V_act_NMDA: -25.57
+        xmax_GABA_B1a: 1.0
+      cortical_PC_BC:
+        params: {}
+        nest_params:
+          E_rev_GABA_A: -70.0
+          g_KL: 0.7
+          g_NaL: 0.2
+          g_peak_AMPA: mandatory
+          g_peak_GABA_A: mandatory
+          g_peak_h: 0.0
+          g_peak_KNa: 0.5
+          g_peak_NaP: 0.5
+          g_peak_T: 0.0
+          t_ref: mandatory
+          tau_m: mandatory
+          tau_spike: mandatory
+          tau_theta: mandatory
+        Vp_PC:
+          params: {}
+          nest_params:
+            g_peak_AMPA: 0.13
+            g_peak_GABA_A: 0.165
+            theta_eq: -50.0
+            t_ref: 2.0
+            tau_m: 16.0
+            tau_spike: 1.5
+            tau_theta: 2.0
+        Vp_BC:
+          params: {}
+          nest_params:
+            g_peak_AMPA: 0.11
+            g_peak_GABA_A: 0.18
+            g_peak_KNa: 1.0
+            theta_eq: -50.0
+            t_ref: 1.0
+            tau_m: 8.0
+            tau_spike: 0.5
+            tau_theta: 1.0
+      Vp_MC:
+        params: {}
+        nest_params:
+          E_rev_GABA_A: -70.0
+          g_KL: 0.28
+          g_NaL: 0.09
+          g_peak_AMPA: 0.105
+          g_peak_GABA_A: 0.09
+          g_peak_h: 0.0
+          g_peak_KNa: 0.5
+          g_peak_NaP: 0.1
+          g_peak_T: 0.0
+          t_ref: 2.0
+          tau_m: 20.0
+          tau_spike: 1.75
+          tau_theta: 2.0
+          theta_eq: -51.0
+      thalamic:
+        params: {}
+        nest_params:
+          E_rev_GABA_A: mandatory
+          g_peak_AMPA: 0.0805
+          g_peak_GABA_A: 0.18
+          g_peak_GABA_B: 0.06
+          g_peak_h: mandatory
+          g_peak_KNa: mandatory
+          g_peak_NaP: mandatory
+          g_peak_T: 1.0
+          t_ref: 1.0
+          theta_eq: -51.0
+          tau_m: 8.0
+          tau_spike: 0.75
+          tau_theta: 1.0
+        Tp_exc:
+          params: {}
+          nest_params:
+            E_rev_GABA_A: -80.0
+            g_KL: 1.0
+            g_NaL: 0.2
+            g_peak_h: 1.0
+            g_peak_KNa: 0.0
+            g_peak_NaP: 0.35
+        Tp_inh:
+          params: {}
+          nest_params:
+            E_rev_GABA_A: -80.0
+            g_KL: 1.0
+            g_NaL: 0.2
+            g_peak_h: 0.0
+            g_peak_KNa: 0.0
+            g_peak_NaP: 0.35
+        Rp_inh:
+          params: {}
+          nest_params:
+            E_rev_GABA_A: -70.0
+            g_KL: 0.7
+            g_NaL: 0.2
+            g_peak_h: 0.0
+            g_peak_KNa: 0.0
+            g_peak_NaP: 0.35
+    retina_nrn:
+      params:
+        nest_model: sinusoidal_poisson_generator
+      nest_params:
+        rate: 60.0
+        amplitude: 0.0
+        frequency: 3.0
+        phase: 0.0
+    poisson_nrn:
+      params:
+        nest_model: poisson_generator
+      nest_params: {}
+      poisson_nrn_to_cortex_L4:
+        params: {}
+        nest_params:
+          rate: 45.0
+      poisson_nrn_to_cortex_L56:
+        params: {}
+        nest_params:
+          rate: 60.0
+      poisson_nrn_to_cortex_L23:
+        params: {}
+        nest_params:
+          rate: 60.0
+  topology:
+    params:
+      projections:
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L23
+        target_layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_AMPA_to_PC
+      - source_layers:
+        - Cortical_background_layer_NMDA_to_cortex
+        source_population: poisson_nrn_to_cortex_L23
+        target_layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_NMDA_to_PC
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L23
+        target_layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: cortical_background_AMPA_to_BC
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L4
+        target_layers:
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_AMPA_to_PC
+      - source_layers:
+        - Cortical_background_layer_NMDA_to_cortex
+        source_population: poisson_nrn_to_cortex_L4
+        target_layers:
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_NMDA_to_PC
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L4
+        target_layers:
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: cortical_background_AMPA_to_BC
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L56
+        target_layers:
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_AMPA_to_PC
+      - source_layers:
+        - Cortical_background_layer_NMDA_to_cortex
+        source_population: poisson_nrn_to_cortex_L56
+        target_layers:
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: cortical_background_NMDA_to_PC
+      - source_layers:
+        - Cortical_background_layer_AMPA_to_cortex
+        source_population: poisson_nrn_to_cortex_L56
+        target_layers:
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: cortical_background_AMPA_to_BC
+      - source_layers:
+        - Retina_layer
+        source_population: parrot_neuron
+        target_layers:
+        - Tp_layer
+        target_population: Tp_exc
+        projection_model: retinothalamic_to_exc_Tp
+      - source_layers:
+        - Retina_layer
+        source_population: parrot_neuron
+        target_layers:
+        - Tp_layer
+        target_population: Tp_inh
+        projection_model: retinothalamic_to_inh_Tp
+      - source_layers:
+        - Rp_layer
+        source_population: Rp_inh
+        target_layers:
+        - Rp_layer
+        target_population: Rp_inh
+        projection_model: Rp_to_Rp
+      - source_layers:
+        - Rp_layer
+        source_population: Rp_inh
+        target_layers:
+        - Tp_layer
+        target_population: null
+        projection_model: Rp_to_Tp_GABA_A
+      - source_layers:
+        - Rp_layer
+        source_population: Rp_inh
+        target_layers:
+        - Tp_layer
+        target_population: null
+        projection_model: Rp_to_Tp_GABA_B
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Rp_layer
+        target_population: Rp_inh
+        projection_model: Tp_to_Rp
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_inh
+        target_layers:
+        - Tp_layer
+        target_population: null
+        projection_model: Tp_inh_to_Tp
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: Tp_to_Vp_P00_L4
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: Tp_to_Vp_P90_L4
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: Tp_to_Vp_P00_L56
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: Tp_to_Vp_P90_L56
+      - source_layers:
+        - Tp_layer
+        source_population: Tp_exc
+        target_layers:
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: Tp_Vp_diffuse
+      - source_layers:
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Tp_layer
+        target_population: null
+        projection_model: Vp_to_Tp
+      - source_layers:
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Rp_layer
+        target_population: null
+        projection_model: Vp_to_Rp
+      - source_layers:
+        - Vp_L23_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L23_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L23_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L23_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L23_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L23_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L23_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L23_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L4_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L4_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L4_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L4_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L4_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L4_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L4_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L4_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L4_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L56_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L56_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L56_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_same
+      - source_layers:
+        - Vp_L56_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_same
+      - source_layers:
+        - Vp_L56_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L56_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L56_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_PC_diff
+      - source_layers:
+        - Vp_L56_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_GABA_A_Vp_BC_to_BC_diff
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_NMDA_Vp_PC_to_PC_same
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_NMDA_Vp_PC_to_PC_same
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_NMDA_Vp_PC_to_PC_diff
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_NMDA_Vp_PC_to_PC_diff
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_same
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_same
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_diff
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_diff
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_PC_same
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_BC_same
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_PC_same
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_BC_same
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_PC_diff
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_BC_diff
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_PC_diff
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_L4_PC_to_BC_diff
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_PC_to_PC_same
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_same
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_PC_to_PC_same
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_same
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_PC_to_PC_diff
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_diff
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: intralaminar_AMPA_Vp_PC_to_PC_diff
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P00
+        target_population: Vp_BC
+        projection_model: intralaminar_AMPA_Vp_PC_to_BC_diff
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_NMDA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_NMDA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_L23_to_L56_PC_to_PC
+      - source_layers:
+        - Vp_L23_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P00
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_L23_to_L56_PC_to_BC
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_L23_to_L56_PC_to_PC
+      - source_layers:
+        - Vp_L23_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_L23_to_L56_PC_to_BC
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L4_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L4_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P00
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L23_BC_P90
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P00
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_AMPA_Vp_PC_to_PC
+      - source_layers:
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L4_BC_P90
+        target_population: Vp_BC
+        projection_model: interlaminar_AMPA_Vp_PC_to_BC
+      - source_layers:
+        - Vp_L23_BC_P00
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P00
+        - Vp_L4_PC_P00
+        - Vp_L56_PC_P00
+        target_population: Vp_PC
+        projection_model: interlaminar_GABA_B
+      - source_layers:
+        - Vp_L23_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: interlaminar_GABA_B
+      - source_layers:
+        - Vp_L23_PC_P00
+        - Vp_L4_PC_P00
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_MC_P00
+        target_population: Vp_MC
+        projection_model: Vp_PC_to_MC_same
+      - source_layers:
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_MC_P90
+        target_population: Vp_MC
+        projection_model: Vp_PC_to_MC_same
+      - source_layers:
+        - Vp_L23_PC_P00
+        - Vp_L4_PC_P00
+        - Vp_L56_PC_P00
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_MC_P90
+        target_population: Vp_MC
+        projection_model: Vp_PC_to_MC_diff
+      - source_layers:
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P90
+        source_population: Vp_PC
+        target_layers:
+        - Vp_L56_MC_P00
+        target_population: Vp_MC
+        projection_model: Vp_PC_to_MC_diff
+      - source_layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        source_population: Vp_BC
+        target_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        target_population: Vp_MC
+        projection_model: Vp_BC_to_MC
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: Vp_MC_to_PC_GABA_A
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L23_PC_P00
+        - Vp_L23_PC_P90
+        - Vp_L4_PC_P00
+        - Vp_L4_PC_P90
+        - Vp_L56_PC_P00
+        - Vp_L56_PC_P90
+        target_population: Vp_PC
+        projection_model: Vp_MC_to_PC_GABA_B1a
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: Vp_MC_to_BC_GABA_A
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L23_BC_P00
+        - Vp_L23_BC_P90
+        - Vp_L4_BC_P00
+        - Vp_L4_BC_P90
+        - Vp_L56_BC_P00
+        - Vp_L56_BC_P90
+        target_population: Vp_BC
+        projection_model: Vp_MC_to_BC_GABA_B1a
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        target_population: Vp_MC
+        projection_model: MC_gap_dummy
+      - source_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        source_population: Vp_MC
+        target_layers:
+        - Vp_L56_MC_P00
+        - Vp_L56_MC_P90
+        target_population: Vp_MC
+        projection_model: MC_gap
+    nest_params: {}
+  synapse_models:
+    params: {}
+    nest_params: {}
+    static_synapse:
+      params:
+        nest_model: static_synapse
+        target_neuron: ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike
+      nest_params: {}
+      GABA_B1a_syn_MC_to_PC:
+        params:
+          receptor_type: GABA_B1a
+        nest_params: {}
+      GABA_B_syn_MC_to_BC:
+        params:
+          receptor_type: GABA_B
+        nest_params: {}
+      GABA_B1a_syn_MC_to_BC:
+        params:
+          receptor_type: GABA_B1a
+        nest_params: {}
+      cortical_background_projection_NMDA:
+        params:
+          receptor_type: NMDA
+        nest_params: {}
+      retinal_projection:
+        params:
+          receptor_type: AMPA
+        nest_params: {}
+      cortical_background_projection_AMPA:
+        params:
+          receptor_type: AMPA
+        nest_params: {}
+      GABA_A_syn_MC_to_PC:
+        params:
+          receptor_type: GABA_A
+        nest_params: {}
+      GABA_B_syn_MC_to_PC:
+        params:
+          receptor_type: GABA_B
+        nest_params: {}
+      GABA_A_syn_MC_to_BC:
+        params:
+          receptor_type: GABA_A
+        nest_params: {}
+    gap_junction_dummy_syn:
+      params:
+        nest_model: static_synapse_lbl
+        receptor_type: AMPA
+        target_neuron: ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike
+      nest_params:
+        synapse_label: 100
+    tsodyks2_synapse:
+      params:
+        target_neuron: ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike
+        nest_model: tsodyks2_synapse
+      nest_params: {}
+      AMPA_syn_thalamocortical:
+        params:
+          receptor_type: AMPA
+        nest_params:
+          x: 1.0
+          U: 0.5
+          u: 0.5
+          tau_rec: 200.0
+          tau_fac: 0.0
+        AMPA_syn_thalamocortical_to_BC:
+          params: {}
+          nest_params: {}
+        AMPA_syn_thalamocortical_to_PC:
+          params: {}
+          nest_params: {}
+      AMPA_syn_PC_to_BC:
+        params:
+          receptor_type: AMPA
+        nest_params:
+          x: 1.0
+          U: 0.5
+          u: 0.5
+          tau_rec: 600.0
+          tau_fac: 0.0
+      GABA_A_syn_BC_to_BC:
+        params:
+          receptor_type: GABA_A
+        nest_params:
+          x: 1.0
+          U: 0.25
+          u: 0.25
+          tau_rec: 600.0
+          tau_fac: 0.0
+      NMDA_syn_PC_to_PC:
+        params:
+          receptor_type: NMDA
+        nest_params:
+          x: 1.0
+          U: 0.4
+          u: 0.4
+          tau_rec: 600.0
+          tau_fac: 0.0
+      NMDA_syn_PC_to_BC:
+        params:
+          receptor_type: NMDA
+        nest_params:
+          x: 1.0
+          U: 0.5
+          u: 0.5
+          tau_rec: 600.0
+          tau_fac: 0.0
+      AMPA_syn_PC_to_MC:
+        params:
+          receptor_type: AMPA
+        nest_params:
+          x: 1.0
+          U: 0.1
+          u: 0.1
+          tau_rec: 20.0
+          tau_fac: 600.0
+      GABA_A_syn_BC_to_MC:
+        params:
+          receptor_type: GABA_A
+        nest_params:
+          x: 1.0
+          U: 0.25
+          u: 0.25
+          tau_rec: 600.0
+          tau_fac: 0.0
+      GABA_A_syn_BC_to_PC:
+        params:
+          receptor_type: GABA_A
+        nest_params:
+          x: 1.0
+          U: 0.25
+          u: 0.25
+          tau_rec: 600.0
+          tau_fac: 0.0
+      other:
+        params: {}
+        nest_params:
+          x: 1.0
+          U: 0.0625
+          u: 0.0625
+          tau_rec: 500.0
+          tau_fac: 0.0
+        NMDA_syn:
+          params:
+            receptor_type: NMDA
+          nest_params: {}
+        AMPA_syn:
+          params:
+            receptor_type: AMPA
+          nest_params: {}
+        GABA_B_syn:
+          params:
+            receptor_type: GABA_B
+          nest_params: {}
+        GABA_A_syn:
+          params:
+            receptor_type: GABA_A
+          nest_params: {}
+      AMPA_syn_PC_to_PC:
+        params:
+          receptor_type: AMPA
+        nest_params:
+          x: 1.0
+          U: 0.4
+          u: 0.4
+          tau_rec: 600.0
+          tau_fac: 0.0
+  layers:
+    params:
+      type: null
+    nest_params:
+      edge_wrap: true
+      extent:
+      - 40.0
+      - 40.0
+      rows: mandatory
+      columns: mandatory
+    subcortical:
+      params: {}
+      nest_params:
+        rows: 40
+        columns: 40
+      Rp_layer:
+        params:
+          populations:
+            Rp_inh: 1
+        nest_params: {}
+      Tp_layer:
+        params:
+          populations:
+            Tp_exc: 1
+            Tp_inh: 1
+        nest_params: {}
+    Vp:
+      params: {}
+      nest_params: {}
+      Vp_PC:
+        params:
+          populations:
+            Vp_PC: 1
+        nest_params:
+          rows: 56
+          columns: 56
+        Vp_L56_PC_P90:
+          params: {}
+          nest_params: {}
+        Vp_L4_PC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L23_PC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L4_PC_P90:
+          params: {}
+          nest_params: {}
+        Vp_L23_PC_P90:
+          params: {}
+          nest_params: {}
+        Vp_L56_PC_P00:
+          params: {}
+          nest_params: {}
+      Vp_L56_MC:
+        params:
+          populations:
+            Vp_MC: 1
+        nest_params:
+          rows: 25
+          columns: 25
+        Vp_L56_MC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L56_MC_P90:
+          params: {}
+          nest_params: {}
+      Vp_BC:
+        params:
+          populations:
+            Vp_BC: 1
+        nest_params:
+          rows: 25
+          columns: 25
+        Vp_L23_BC_P90:
+          params: {}
+          nest_params: {}
+        Vp_L56_BC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L4_BC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L23_BC_P00:
+          params: {}
+          nest_params: {}
+        Vp_L4_BC_P90:
+          params: {}
+          nest_params: {}
+        Vp_L56_BC_P90:
+          params: {}
+          nest_params: {}
+    Cortical_background_layers:
+      params: {}
+      nest_params:
+        rows: 1
+        columns: 1
+      Cortical_background_layer_AMPA_to_cortex:
+        params:
+          populations:
+            poisson_nrn_to_cortex_L23: 1
+            poisson_nrn_to_cortex_L4: 1
+            poisson_nrn_to_cortex_L56: 1
+        nest_params: {}
+      Cortical_background_layer_NMDA_to_cortex:
+        params:
+          populations:
+            poisson_nrn_to_cortex_L23: 1
+            poisson_nrn_to_cortex_L4: 1
+            poisson_nrn_to_cortex_L56: 1
+        nest_params: {}
+    Retina_layer:
+      params:
+        type: InputLayer
+        add_parrots: true
+        populations:
+          retina_nrn: 1
+      nest_params:
+        rows: 40
+        columns: 40
+kernel:
+  params:
+    extension_modules:
+    - htneuronmodule
+    nest_seed: 94
+  nest_params:
+    local_num_threads: 10
+    resolution: 0.2
+    print_time: true
+    overwrite_files: true
+simulation:
+  params:
+    sessions:
+    - modif
+    - modif2
+    - warmup
+    - noise
+    output_dir: /Volumes/scratch/tbugnon/projects/networks/data_V3/2020-12-01_11.08.13/(([Vp_PC_Vp_BC]_((g_peak_AMPA_1.85),)),)
+    input_dir: ../params/params/input
+  nest_params: {}

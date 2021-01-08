@@ -1,0 +1,12 @@
+00_modif: !!python/tuple
+- 0.0
+- 10.0
+01_modif2: !!python/tuple
+- 10.0
+- 20.0
+02_warmup: !!python/tuple
+- 20.0
+- 3020.0
+03_noise: !!python/tuple
+- 3020.0
+- 33020.0
